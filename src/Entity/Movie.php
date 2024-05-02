@@ -30,7 +30,7 @@ class Movie
     /**
      * @var Collection<int, Actor>
      */
-    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'no')]
+    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
     private Collection $actors;
 
     public function __construct()
