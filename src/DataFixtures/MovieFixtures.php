@@ -28,7 +28,7 @@ class MovieFixtures extends Fixture
         $movie2->setTitle('Black Clover');
         $movie2->setReleaseYear(2015);
         $movie2->setDescription('Protagonist without any magic power');
-        $movie2->setImagePath('https://static.wikia.nocookie.net/blackclover/images/3/39/Elements.png/revision/latest?cb=20180206205439');
+        $movie2->setImagePath('https://st4.depositphotos.com/14715994/39800/v/450/depositphotos_398000874-stock-illustration-magic-ancient-viking-art-deco.jpg');
         $movie2->addActor($this->getReference('actor_3'));
         $movie2->addActor($this->getReference('actor_4'));
         $manager->persist($movie2);
