@@ -6,6 +6,7 @@ use App\Entity\Movie;
 use App\Form\MovieFormType;
 use App\Repository\MovieRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use PhpParser\Node\Name;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -142,6 +143,16 @@ class MoviesController extends AbstractController
             'form' => $form->createView()
         ]);
         
+    }
+
+    #[Route('/movies/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_movie')]
+    public function delete($id): Response
+    {
+        $movie = $this->movieRepository->find($id);
+        $this->em->remove($movie);
+        $this->em->flush();
+
+        return $this->redirectToRoute('movies');
     }
 
 
